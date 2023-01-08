@@ -9,7 +9,7 @@ next(busstop)
 
 
             
-"""
+
 def Classification(): #분류 입력으로 데이터 찾기
     menu = input("자연명소, 체험관, 공원박물관, 문화재, 기차역, 키즈카페, 공방, 코스, 전통사찰, 영화드라마촬영지, 문화공간 중 하나를 입력하시오\n")
     for row in travel: #row와 column으로 이루어진 2차원데이터를 반복해 찾음
@@ -43,4 +43,3 @@ while True:
         place()
     else:
         print("다시 입력해주세요")
-"""
