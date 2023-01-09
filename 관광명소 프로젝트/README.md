@@ -42,6 +42,8 @@
   ## 화면 흐름도
   ![image](https://user-images.githubusercontent.com/109015772/211317375-6e171973-d9c0-40e0-8be4-915bc1484a32.png)
 
+
+#2. 데이터베이스 설계
  
 
 
