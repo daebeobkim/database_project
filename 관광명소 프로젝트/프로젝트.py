@@ -8,7 +8,7 @@ next(travel) #row 첫번째 줄을 생략
 next(busstop)
 
 
-def Distance():
+def Distance():#버스정류장 기준 위도 경도를 사용해 거리 계산
     global a,b,c,d
     nearby  = input("현재 위치에서 가까운 버스정류장을 입력하세요\n")
     distant = input("목적지 근처의 버스정류장을 입력하세요\n")
