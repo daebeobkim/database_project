@@ -61,5 +61,7 @@ while True:
         place()
     elif i == '3':
         Distance()
+    elif i == "4":
+        break
     else:
         print("다시 입력해주세요")
