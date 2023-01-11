@@ -28,8 +28,8 @@ def add():
 def review():
     print("명소이름 별점 후기")
     print("-----------------")
+    cur.execute("SELECT * FROM userTable")
     while(True):
-        cur.execute("SELECT * FROM userTable")
         row = cur.fetchone()
         if row == None:
             break
