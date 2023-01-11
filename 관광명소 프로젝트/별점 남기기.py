@@ -13,43 +13,45 @@ sql = ""
 
 conn = pymysql.connect(host='127.0.0.1',user='root',password='0000',db='stardb',charset='utf8')
 cur = conn.cursor()
-"""
-while(True):
-    data1 = input("명소 이름 ==> ")
-    if data1 == "":
-        break
-    data2 = input("별점 입력하기 ==> ")
-    data3 = input("후기 남기기 ==> ")
-    sql = "INSERT INTO userTable VALUES('"+data1+"',"+data2+",'"+data3+"')"
-    cur.execute(sql)
-conn.commit()
 
-cur.execute("SELECT * FROM userTable")
+def add():
+    while(True):
+        data1 = input("명소 이름 ==> ")
+        if data1 == "":
+            break
+        data2 = input("별점 입력하기 ==> ")
+        data3 = input("후기 남기기 ==> ")
+        sql = "INSERT INTO userTable VALUES('"+data1+"',"+data2+",'"+data3+"')"
+        cur.execute(sql)
+    conn.commit()
+    cur.execute("SELECT * FROM useTable")   
+def review():
+    print("명소이름 별점 후기")
+    print("-----------------")
+    while(True):
+        cur.execute("SELECT * FROM userTable")
+        row = cur.fetchone()
+        if row == None:
+            break
+        data1 = row[0]
+        data2 = row[1]
+        data3 = row[2]
+        print("%s %s %5s" %(data1,data2,data3))
+    conn.close()    
+  
 
-print("명소이름 별점 후기")
-print("-----------------")
-while(True):
-    row = cur.fetchone()
-    if row == None:
-        break
-    data1 = row[0]
-    data2 = row[1]
-    data3 = row[2]
-    print("%s %s %5s" %(data1,data2,data3))
-conn.close()   
-"""
-def login():   
-    print("로그인")
-    id = input("id : ")
-    password = input("password : ")
-    cur.execute("SERECT id, name FROM member WHERE id = '%s' AND password = '%s'" %(id,password))
-    row = cur.fetchall()
-    if len(row) < 1:
-        print("틀렸습니다 다시 입력해주세요")
-        return id, 0
-    if row[0][0] == id:
-        print("%s님 환영합니다" %(row[0][1]))
-        return id,1
+def login():
+    while True:   
+        print("로그인")
+        id = input("id : ")
+        password = input("password : ")
+        cur.execute("SELECT id, name FROM member WHERE id = '%s' AND password = '%s'" %(id, password))
+        row = cur.fetchall()
+        if len(row) < 1:
+            print("틀렸습니다 다시 입력해주세요")
+        elif row[0][0] == id:
+            print("%s님 환영합니다" %(row[0][1]))
+            break
 
 
 
@@ -64,8 +66,14 @@ def membership():
     conn.commit()
 
 while True:
-    menu = input("메뉴를 선택하시오 : 1. 로그인  2. 회원가입")
+    menu = input("메뉴를 선택하시오 : 1. 로그인  2. 회원가입\n")
     if menu == '1':
         login()
+        while True:
+            menu1 = input("메뉴를 선택하시오 : 1. 별점 남기기 2. 별점 보기\n")
+            if menu1 == '1':
+                add()
+            elif menu1 == '2':
+                review()
     elif menu == '2':
         membership()
