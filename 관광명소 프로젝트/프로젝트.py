@@ -6,7 +6,7 @@ bus = open('C:/Users/rlaeo/OneDrive/바탕 화면/bus.csv','rt',encoding='cp949'
 travel = csv.reader(data)
 busstop = csv.reader(bus)
 next(travel) #row 첫번째 줄을 생략 
-next(busstop)
+next(busstop) 
 
 conn,cur = None,None
 data1,data2,data3,data4 = "","","",""
@@ -62,6 +62,7 @@ def membership(): #회원가입
     age = int(input("나이를 입력하세요 : "))
     cur.execute("INSERT INTO `member` (`id`, `password`, `name`, `age`) VALUES ('%s', '%s', '%s', '%d')" %(id, password, name, age))
     conn.commit()
+
 
 
 def Distance():#버스정류장 기준 위도 경도를 사용해 거리 계산
@@ -124,10 +125,14 @@ while True:
                     add()
                 elif menu1 == '2':
                     review()
+                else:
+                    print("다시 입력해주세요\n")
             else:
-                print("다시 입력해주세요")
+                print("다시 입력해주세요\n")
     elif menu == '2':
         membership()
+    else:
+        print("다시 입력해주세요\n")
 
 
 """
