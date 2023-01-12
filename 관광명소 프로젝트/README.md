@@ -38,6 +38,7 @@
   * 로그인
   * 회원가입
   * 별점 남기기
+  * 별점 보기
   
   ## 화면 흐름도
   ![image](https://user-images.githubusercontent.com/109015772/211317375-6e171973-d9c0-40e0-8be4-915bc1484a32.png)
