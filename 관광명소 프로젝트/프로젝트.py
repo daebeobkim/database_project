@@ -63,8 +63,6 @@ def membership(): #회원가입
     cur.execute("INSERT INTO `member` (`id`, `password`, `name`, `age`) VALUES ('%s', '%s', '%s', '%d')" %(id, password, name, age))
     conn.commit()
 
-
-
 def Distance():#버스정류장 기준 위도 경도를 사용해 거리 계산
     global a,b,c,d
     nearby  = input("현재 위치에서 가까운 버스정류장을 입력하세요\n")
