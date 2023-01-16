@@ -132,23 +132,3 @@ while True:
     else:
         print("다시 입력해주세요\n")
 
-
-"""
-while True:
-    print("------메뉴------")
-    print("1. 분류로 찾기")
-    print("2. 위치로 찾기")
-    print("3. 버스정류장으로 목적지 까지 거리 계산하기")
-    print("4. 종료")
-    i = input("원하시는 메뉴를 입력하세요\n")
-    if i == '1':
-        Classification()
-    elif i == '2':
-        place()
-    elif i == '3':
-        Distance()
-    elif i == "4":
-        break
-    else:
-        print("다시 입력해주세요")
-"""
