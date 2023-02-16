@@ -7,6 +7,7 @@ all1 = csv.reader(all)
 headoffice1 = csv.reader(headoffice)
 Area1 = csv.reader(Area)
 
+
 for row in headoffice:
     for i in range(5):
         print(row[1][1])
