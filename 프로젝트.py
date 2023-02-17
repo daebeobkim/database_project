@@ -1,5 +1,6 @@
 import csv #csv사용 모듈
 import matplotlib.pyplot as plt
+import platform
 all = open('C:/Users/rlaeo/OneDrive/바탕 화면/소방scv/소방청_화재발생 정보.csv','rt',encoding='cp949') #전체
 headoffice = open('C:/Users/rlaeo/OneDrive/바탕 화면/소방scv/소방관할관서.csv','rt',encoding='cp949') #소방본부 데이터
 Area = open('C:/Users/rlaeo/OneDrive/바탕 화면/소방scv/행정구역.csv','rt',encoding='cp949') #지역 위주 데이터
@@ -71,9 +72,15 @@ labels = ["전남", "서울", "경남", "경북", "전남", "경기", "충남" ,
 plt.pie(ratio, labels=labels, autopct='%.1f%%')
 plt.show()
 """
+plt.rc('font', family='Malgun Gothic') 
 지역 = [전남, 서울, 경남, 경북, 전남, 경기, 충남 ,충북,인천,부산,광주,울산,대구,대전,제주,세종,강원]
 plt.bar(range(len(지역)), 지역)
+
+ticklabel=["전남", "서울", "경남", "경북", "전남", "경기", "충남" ,"충북","인천","부산","광주","울산","대구","대전","제주","세종","강원"]
+
+plt.xticks(지역,ticklabel)
+
+
+
+
 plt.show()
-ax = plt.subplot()
-ax.set_xticks([전남, 서울, 경남, 경북, 전남, 경기, 충남 ,충북,인천,부산,광주,울산,대구,대전,제주,세종,강원])
-ax.set_xticklabels(['전남', "서울", "경남", "경북", "전남", "경기", "충남" ,"충북","인천","부산","광주","울산","대구","대전","제주","세종","강원"], rotation=30)
