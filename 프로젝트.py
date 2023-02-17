@@ -77,10 +77,5 @@ plt.rc('font', family='Malgun Gothic')
 plt.bar(range(len(지역)), 지역)
 
 ticklabel=["전남", "서울", "경남", "경북", "전남", "경기", "충남" ,"충북","인천","부산","광주","울산","대구","대전","제주","세종","강원"]
-
 plt.xticks(지역,ticklabel)
-
-
-
-
 plt.show()
