@@ -1,7 +1,7 @@
 import csv #csv사용 모듈
 import matplotlib.pyplot as plt
 import platform
-
+import folium
 all = open('C:/Users/rlaeo/OneDrive/바탕 화면/소방scv/소방청_화재발생 정보.csv','rt',encoding='cp949') #전체
 headoffice = open('C:/Users/rlaeo/OneDrive/바탕 화면/소방scv/소방관할관서.csv','rt',encoding='cp949') #소방본부 데이터
 Area = open('C:/Users/rlaeo/OneDrive/바탕 화면/소방scv/행정구역.csv','rt',encoding='cp949') #지역 위주 데이터
@@ -30,7 +30,7 @@ sum=0
 for row in all1:
     sum+=1
     if row[1] == '전라북도':
-        전남 += 1
+        전북 += 1
     elif row[1] == '서울특별시':
         서울 += 1
     elif row[1] == '경상남도':
@@ -64,8 +64,8 @@ for row in all1:
     elif row[1] == '세종특별자치시':
         세종 += 1
     
-print("%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s" %(전남, 서울, 경남, 경북, 전남, 경기, 충남 ,충북,인천,부산,광주,울산,대구,대전,제주,세종,강원))
-print("%s" %(전남+서울+경남+경북+전남+경기+충남+충북+인천+부산+광주+울산+대구+대전+제주+세종+강원))
+print("%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s" %(전북, 서울, 경남, 경북, 전남, 경기, 충남 ,충북,인천,부산,광주,울산,대구,대전,제주,세종,강원))
+print("%s" %(전북+서울+경남+경북+전남+경기+충남+충북+인천+부산+광주+울산+대구+대전+제주+세종+강원))
 
 """
 ratio = [전남, 서울, 경남, 경북, 전남, 경기, 충남 ,충북,인천,부산,광주,울산,대구,대전,제주,세종,강원]
@@ -74,8 +74,10 @@ plt.pie(ratio, labels=labels, autopct='%.1f%%')
 plt.show()
 """
 plt.rc('font', family='Malgun Gothic') 
-지역 = [전남, 서울, 경남, 경북, 전남, 경기, 충남 ,충북 ,인천 ,부산 ,광주 ,울산 ,대구 ,대전 ,제주,세종,강원]
-ticklabel=["전남", "서울", "경남", "경북", "전남", "경기", "충남" ,"충북","인천","부산","광주","울산","대구","대전","제주","세종","강원"]
-plt.bar(ticklabel,지역)
-
+지역 = [전북, 서울, 경남, 경북, 전남, 경기, 충남 ,충북 ,인천 ,부산 ,광주 ,울산 ,대구 ,대전 ,제주,세종,강원]
+ticklabel=["경기", "서울", "경북", "경남", "전남", "부산", "경기" ,"충남","강원","충북","대구","인천","대전","울산","광주","제주","세종"]
+tick = sorted(지역,reverse=True)
+plt.bar(ticklabel,tick)
+for i,j,k in range(len(지역)):
+    plt.text(i,j/2,"%s %s" %((j/(j+k)*100),va='center',ha='center')
 plt.show()
