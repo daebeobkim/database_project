@@ -44,7 +44,6 @@ for row in all1:
     elif row[1] == '강원도':
         강원 += 1
     elif row[1] == '충청남도':
-        
         충남 += 1
     elif row[1] == '충청북도':
         충북 += 1
