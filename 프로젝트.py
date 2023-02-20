@@ -78,6 +78,7 @@ plt.rc('font', family='Malgun Gothic')
 ticklabel=["경기", "서울", "경북", "경남", "전남", "부산", "경기" ,"충남","강원","충북","대구","인천","대전","울산","광주","제주","세종"]
 tick = sorted(지역,reverse=True)
 plt.bar(ticklabel,tick)
+
 for i,j,k in range(len(지역)):
     plt.text(i,j/2,"%s %s" %((j/(j+k)*100),va='center',ha='center')
 plt.show()
