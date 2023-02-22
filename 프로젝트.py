@@ -82,3 +82,4 @@ plt.bar(ticklabel,tick)
 for i,j,k in range(len(지역)):
     plt.text(i,j/2,"%s %s" %((j/(j+k)*100),va='center',ha='center')
 plt.show()
+
