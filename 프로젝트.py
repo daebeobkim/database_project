@@ -29,6 +29,7 @@ Area1 = csv.reader(Area)
 sum=0
 for row in all1:
     sum+=1
+
     if row[1] == '전라북도':
         전북 += 1
     elif row[1] == '서울특별시':
