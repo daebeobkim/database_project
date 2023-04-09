@@ -1,3 +1,4 @@
+
 import csv #csv사용 모듈
 import matplotlib.pyplot as plt
 import platform
