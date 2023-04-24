@@ -20,7 +20,7 @@ ISR(TIMER0_COMP_vect)
 ISR(TIMER2_COMP_vect)
 {
 	count2++;
-	if (count2 == 96) { 
+	if (count2 == 96) {
 		count2 = 0;
 		state2 = !state2;
 		if (state2) PORTC = 0x03;
@@ -32,8 +32,9 @@ int main(void)
 	DDRC = 0x01;
 	PORTC = 0x00;
 	TCCR0 |= (1<<WGM01) | (1<<CS02) | (1<<CS01) | (1<<CS00);
-	TCCR2 |= (1<<WGM01) | (1<<CS02) | (1<<CS01) | (0<<CS00); 
+	TCCR2 |= (1<<WGM01) | (1<<CS02) | (1<<CS01) | (0<<CS00);
 	OCR0 = 128;
+	
 	TIMSK |= (1<< OCIE0);
 	sei();
 	while(1){ }
