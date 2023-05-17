@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from helloflask.model.user_model import Members
+from helloflask import Members
 
 app = Flask(__name__)
 
