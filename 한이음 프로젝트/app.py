@@ -19,6 +19,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html',data_list=data_list)
     
+host_addr = "0.0.0.0"
+port_num = "5000"
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host=host_addr,port=port_num,debug=True)
     
