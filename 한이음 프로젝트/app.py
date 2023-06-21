@@ -1,9 +1,9 @@
 from flask import Flask, render_template
 import pymysql
 
-db = pymysql.connect(host="localhost", user="root", passwd="0000", db="practice", charset="utf8")
+db = pymysql.connect(host="192.168.0.40", user="root", passwd="1234", db="CAP2", charset="utf8")
 cur = db.cursor()
-sql = 'SELECT * from customer'
+sql = 'SELECT * from han'
 cur.execute(sql)
 
 data_list = cur.fetchall()
