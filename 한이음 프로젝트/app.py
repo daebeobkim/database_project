@@ -18,7 +18,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    time.sleep(1)
     return render_template('index.html',data_list=data_list)
     
 
