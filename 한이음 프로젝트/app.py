@@ -16,6 +16,7 @@ def index():
         # POST 요청 처리
         # 요청 파라미터 받기
         param = request.form.get('param_name')
+        
 
         # 처리 로직 구현
         # ...
