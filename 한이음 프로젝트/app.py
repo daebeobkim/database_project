@@ -10,18 +10,23 @@ data_list = cur.fetchall()
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
         # POST 요청 처리
         # 요청 파라미터 받기
         param = request.form.get('param_name')
         
-
         # 처리 로직 구현
         # ...
 
         return render_template('index.html', data_list=data_list, param=param)
+
+    else:
+        # GET 요청 처리
+        # ...
+
+        return render_template('index.html', data_list=data_list)
 
 host_addr = "0.0.0.0"
 port_num = "5000"
