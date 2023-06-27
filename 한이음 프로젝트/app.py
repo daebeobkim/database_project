@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pymysql
 
 db = pymysql.connect(host="192.168.0.40", user="root", passwd="1234", db="CAP2", charset="utf8")
@@ -15,18 +15,14 @@ def index():
     if request.method == 'POST':
         # POST 요청 처리
         # 요청 파라미터 받기
-        param = request.form.get('param_name')
-        
+        param = request.form.get('param_name')   
         # 처리 로직 구현
-        # ...
-
         return render_template('index.html', data_list=data_list, param=param)
-
     else:
         # GET 요청 처리
-        # ...
-
         return render_template('index.html', data_list=data_list)
+    return jsonify(data_list)
+
 
 host_addr = "0.0.0.0"
 port_num = "5000"
