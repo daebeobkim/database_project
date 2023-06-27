@@ -4,36 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- CSS 및 기타 필요한 리소스를 여기에 추가 -->
 </head>
 <body>
     <div class="container">
         <br>
-        <h1 class = "text-center"><a href="#">한이음</a></h1>
-    <table class="table table-hover table-striped text-center" style="border: 1px solid;">
-        <thead>  
-            <tr>
-                <th>섭씨</th>
-                <th>화씨</th>
-                <th>습도</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            {% for i in data_list %}
-            <tr>
-                <td>{{ i[0] }}</td>
-                <td>{{ i[1] }}</td>
-                <td>{{ i[2] }}</td>
-                
-            </tr>
-            {% endfor %}
-        </tbody>
+        <h1 class="text-center"><a href="#">한이음</a></h1>
+        <table class="table table-hover table-striped text-center" style="border: 1px solid;">
+            <thead>
+                <tr>
+                    <th>섭씨</th>
+                    <th>화씨</th>
+                    <th>습도</th>
+                </tr>
+            </thead>
+            <tbody id="data-table">
+            </tbody>
+        </table>
     </div>
-    </table>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // GET 요청을 보내고 데이터를 받아 테이블에 출력
+            $.get('/', function(response) {
+                var data = response.data_list;
+                var tableBody = $('#data-table');
+                for (var i = 0; i < data.length; i++) {
+                    var item = data[i];
+                    var row = '<tr><td>' + item[0] + '</td><td>' + item[1] + '</td><td>' + item[2] + '</td></tr>';
+                    tableBody.append(row);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
