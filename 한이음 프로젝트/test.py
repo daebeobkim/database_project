@@ -1,22 +1,15 @@
 from flask import Flask, render_template, jsonify
-import pymysql
-
-db = pymysql.connect(host="192.168.0.40", user="root", passwd="1234", db="CAP2", charset="utf8")
-cur = db.cursor()
-sql = 'SELECT * from han'
-cur.execute(sql)
-
-data_list = cur.fetchall()
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def index():
-    return jsonify(data_list=data_list)
-
-
-host_addr = "0.0.0.0"
-port_num = "5000"
+    data_list = [
+        {'celsius': 25, 'fahrenheit': 77, 'humidity': 60},
+        {'celsius': 28, 'fahrenheit': 82.4, 'humidity': 65},
+        {'celsius': 30, 'fahrenheit': 86, 'humidity': 70}
+    ]
+    return render_template('index.html', data_list=jsonify(data_list))
 
 if __name__ == '__main__':
-    app.run(host=host_addr, port=port_num, debug=True)
+    app.run(debug=True)
